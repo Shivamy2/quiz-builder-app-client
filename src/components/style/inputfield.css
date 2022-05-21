@@ -1,0 +1,22 @@
+.inputfield>input {
+    letter-spacing: 0.05em;
+    outline: none;
+    border: 0px;
+}
+
+.inputfield>input::placeholder {
+    color: grey;
+}
+
+.inputfield__warning {
+    margin-top: -10px;
+}
+
+.inputfield__warning p {
+    font-size: 0.8rem;
+}
+
+.react-icon-class {
+    height: 5px;
+    width: 5px;
+}

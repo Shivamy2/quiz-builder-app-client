@@ -1,0 +1,9 @@
+.dashboard-header {
+    min-height: 60px;
+    width: 100vw;
+}
+
+.dashboard-header__profile {
+    height: 45px;
+    width: 45px;
+}

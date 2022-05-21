@@ -1,0 +1,1 @@
+export const authId = localStorage.getItem("id");

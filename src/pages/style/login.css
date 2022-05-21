@@ -1,0 +1,37 @@
+@media screen and (min-width: 768px) {
+    .login {
+        width: 50%;
+    }
+    .login__form-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.login__form-button {
+    width: max-content;
+}
+
+.login>div {
+    max-width: 28rem;
+    min-height: 100%;
+}
+
+.login__heading>p {
+    letter-spacing: 0.05em;
+}
+
+.login__form {
+    letter-spacing: 0.05em;
+}
+
+.login__form svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-top: 5px;
+}
+
+.login__form-direction {
+    letter-spacing: 0.1em;
+}
