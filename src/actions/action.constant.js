@@ -12,3 +12,8 @@ export const ME_FETCH_ERROR = 'me/fetch_error';
 export const LOGIN_USER = 'login/data';
 export const LOGIN_ERROR = 'login/error';
 export const LOGIN_LOADING = 'login/loading';
+
+// quiz upload
+export const QUIZ_UPLOAD = 'quiz/upload';
+export const QUIZ_UPLOAD_ERROR = 'quiz/upload_error';
+export const QUIZ_UPLOAD_LOADING = 'quiz/upload_loading';

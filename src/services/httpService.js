@@ -18,5 +18,11 @@ export function axiosResponse() {
         return Promise.reject(error);
     })
 }
-const fields = { get: axios.get, post: axios.post, delete: axios.delete, put: axios.put, interceptor: axiosRequest }
+
+export function logout() {
+    localStorage.removeItem("id");
+    window.location.href = '/login';
+}
+
+const fields = { logout: logout, get: axios.get, post: axios.post, delete: axios.delete, put: axios.put, interceptor: axiosRequest }
 export default fields;

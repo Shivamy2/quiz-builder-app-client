@@ -53,7 +53,7 @@ const App = () => {
           <Route exact path={["/login", "/signup"]}>
             {user[0] ? <Redirect to={"/dashboard"} /> : <Auth />}
           </Route>
-          <Route exact path={["/dashboard"]}>
+          <Route exact path={["/dashboard", "/quiz"]}>
             {user[0] ? <MainDisplay /> : <Redirect to="/login" />}
           </Route>
           <Route path={"/"}>Page Not Found</Route>

@@ -7,3 +7,15 @@
         width: 50vw;
     }
 }
+
+.questions-upload {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.dashboard-add-questions {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+}
