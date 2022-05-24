@@ -36,7 +36,7 @@ const Header = () => {
           <div
             className="my-auto me-2"
             style={{ cursor: "pointer" }}
-            onClick={() => history.push("/quiz")}
+            onClick={() => history.push("/upload")}
           >
             <BiBookContent size={25} color="white" />
           </div>

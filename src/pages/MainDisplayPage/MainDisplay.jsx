@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import Header from "../../components/Header";
 import DashboardPage from "./Dashboard.page";
-import QuizContent from "./QuizContent";
+import UploadQuiz from "./UploadQuiz";
 
 const MainDisplay = () => {
   return (
@@ -13,8 +13,8 @@ const MainDisplay = () => {
         <Route exact path="/dashboard">
           <DashboardPage />
         </Route>
-        <Route exact path="/quiz">
-          <QuizContent />
+        <Route exact path="/upload">
+          <UploadQuiz />
         </Route>
       </Switch>
     </>

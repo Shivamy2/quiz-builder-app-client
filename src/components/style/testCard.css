@@ -1,0 +1,12 @@
+.test-card {
+    width: 20rem;
+}
+
+.test-card__logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.test-card>hr {
+    border-style: dotted;
+}

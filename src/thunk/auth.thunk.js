@@ -1,5 +1,4 @@
 import { loginUserData, loginUserError, loginUserLoading, userFetchData, userFetchError, userFetchLoading, userSignupError, userSignupLoading } from "../actions/auth.action"
-import { quizUpload, quizUploadError, quizUploadLoading } from "../actions/quiz.action";
 import httpService from "../services/httpService";
 
 export const createUser = (data) => {
@@ -44,20 +43,6 @@ export const loginUser = (data) => {
         } catch (error) {
             dispatch(loginUserError("Error Occured!!"));
             dispatch(loginUserLoading(false));
-        }
-    }
-}
-
-export const uploadQuiz = (data) => {
-    return async dispath => {
-        try {
-            dispath(quizUploadError(""));
-            const response = await httpService.post('/quiz', data);
-            dispath(quizUpload(response.data));
-            dispath(quizUploadLoading(false));
-        } catch (error) {
-            dispath(quizUploadError("Error Occured!!"));
-            dispath(quizUploadLoading(false));
         }
     }
 }

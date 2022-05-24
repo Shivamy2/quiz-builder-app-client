@@ -17,3 +17,8 @@ export const LOGIN_LOADING = 'login/loading';
 export const QUIZ_UPLOAD = 'quiz/upload';
 export const QUIZ_UPLOAD_ERROR = 'quiz/upload_error';
 export const QUIZ_UPLOAD_LOADING = 'quiz/upload_loading';
+
+// quiz fetch
+export const QUIZ_FETCH = 'quiz/fetch';
+export const QUIZ_FETCH_LOADING = 'quiz/fetch_loading';
+export const QUIZ_FETCH_ERROR = 'quiz/fetch_error';

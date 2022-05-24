@@ -24,5 +24,5 @@ export function logout() {
     window.location.href = '/login';
 }
 
-const fields = { logout: logout, get: axios.get, post: axios.post, delete: axios.delete, put: axios.put, interceptor: axiosRequest }
-export default fields;
+const httpService = { logout: logout, get: axios.get, post: axios.post, delete: axios.delete, put: axios.put, interceptor: axiosRequest }
+export default httpService;

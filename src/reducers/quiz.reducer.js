@@ -1,16 +1,24 @@
-import { QUIZ_UPLOAD, QUIZ_UPLOAD_ERROR, QUIZ_UPLOAD_LOADING } from "../actions/action.constant"
+import { QUIZ_DATA, QUIZ_FETCH, QUIZ_FETCH_ERROR, QUIZ_FETCH_LOADING, QUIZ_UPLOAD, QUIZ_UPLOAD_ERROR, QUIZ_UPLOAD_LOADING } from "../actions/action.constant"
 
 const initialValue = {
     data: [],
     uploadLoading: false,
-    uploadError: ""
+    uploadError: "",
+    fetchLoading: false,
+    fetchError: ""
 }
 
 export const quizReducer = (state = initialValue, action) => {
     switch (action.type) {
         case QUIZ_UPLOAD:
             {
-                return {...state, data: action.payload }
+                const data = action.payload;
+                return {...state, data: [...state.data, ...data] }
+            }
+        case QUIZ_FETCH:
+            {
+                const data = action.payload;
+                return {...state, data: data }
             }
         case QUIZ_UPLOAD_ERROR:
             {
@@ -19,6 +27,14 @@ export const quizReducer = (state = initialValue, action) => {
         case QUIZ_UPLOAD_LOADING:
             {
                 return {...state, uploadLoading: action.payload }
+            }
+        case QUIZ_FETCH_LOADING:
+            {
+                return {...state, fetchLoading: action.payload }
+            }
+        case QUIZ_FETCH_ERROR:
+            {
+                return {...state, fetchError: action.payload }
             }
         default:
             return state;

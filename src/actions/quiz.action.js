@@ -1,7 +1,12 @@
-import { QUIZ_UPLOAD, QUIZ_UPLOAD_ERROR, QUIZ_UPLOAD_LOADING } from "./action.constant";
+import { QUIZ_DATA, QUIZ_FETCH, QUIZ_FETCH_ERROR, QUIZ_FETCH_LOADING, QUIZ_UPLOAD, QUIZ_UPLOAD_ERROR, QUIZ_UPLOAD_LOADING } from "./action.constant";
 
 export const quizUpload = (data) => ({
     type: QUIZ_UPLOAD,
+    payload: data
+})
+
+export const quizFetch = (data) => ({
+    type: QUIZ_FETCH,
     payload: data
 })
 
@@ -12,5 +17,16 @@ export const quizUploadLoading = (status) => ({
 
 export const quizUploadError = (message) => ({
     type: QUIZ_UPLOAD_ERROR,
+    payload: message
+})
+
+
+export const quizFetchLoading = (status) => ({
+    type: QUIZ_FETCH_LOADING,
+    payload: status
+})
+
+export const quizFetchError = (message) => ({
+    type: QUIZ_FETCH_ERROR,
     payload: message
 })
