@@ -132,8 +132,7 @@ const LogInPage = () => {
           <Direction
             className="mt-5 text-center fs-6 login__form-direction"
             textClassName="text-center tracking-widest font-semibold text-primary"
-            text="Forgot Password?"
-            path="/login"
+            text="Guest id: test@gmail.com Pass: secret"
           />
           <Copyright />
         </div>
