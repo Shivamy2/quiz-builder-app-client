@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { userDataSelector } from "../selectors/auth.selector";
 import { FiLogOut } from "react-icons/fi";
 import { AiFillHome } from "react-icons/ai";
-import { BiBookContent } from "react-icons/bi";
+import { BsUpload } from "react-icons/bs";
 import "./style/header.css";
 import fields from "../services/httpService";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -39,7 +39,7 @@ const Header = () => {
             style={{ cursor: "pointer" }}
             onClick={() => history.push("/upload")}
           >
-            <BiBookContent size={25} color="white" />
+            <BsUpload size={25} color="white" />
           </div>
           <div
             className="my-auto me-2 me-md-3"

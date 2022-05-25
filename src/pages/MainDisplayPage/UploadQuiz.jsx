@@ -23,7 +23,6 @@ const UploadQuiz = () => {
     setValues,
     setFieldValue,
     resetForm,
-    isSubmitting,
   } = useFormik({
     initialValues: {
       title: "",
@@ -38,6 +37,22 @@ const UploadQuiz = () => {
     },
     onSubmit: (data) => {
       console.log("sending data", data);
+      // var final = true;
+      // for (var i = 0; i < values.questions.length; ++i) {
+      //   var flag = false;
+      //   const optionValues = values.questions[i].option;
+      //   for (var j = 0; j < optionValues.length; ++j) {
+      //     if (optionValues[j] != 0) {
+      //       flag = true;
+      //       break;
+      //     }
+      //   }
+      //   if (flag === false) {
+      //     final = false;
+      //     alert("Please select all the answers");
+      //   }
+      // }
+      // if (final === true)
       store.dispatch(uploadQuiz(data));
       resetForm();
     },
@@ -46,7 +61,6 @@ const UploadQuiz = () => {
   const handleMoreQuestionClick = (index) => {
     console.log("Index is: ", index);
     const data = [...values.questions];
-    // data[index] = { ...data[index], option: [...data[index].option, ""] };
     data[index].option.push("");
     data[index].answers.push(0);
     setValues({
@@ -67,8 +81,8 @@ const UploadQuiz = () => {
       )}
       {errorMessage && (
         <div className="position-relative mt-2 w-50 mx-auto">
-          <div className="position-absolute bg-success w-100 px-2 py-2 text-white rounded-3">
-            {errorMessage + "visit HomePage" || "Error Occured!!"}
+          <div className="position-absolute text-capitalize bg-success w-100 px-2 py-2 text-white rounded-3">
+            {errorMessage + " visit HomePage" || "Error Occured!!"}
           </div>
         </div>
       )}
@@ -154,7 +168,6 @@ const UploadQuiz = () => {
                   {values.questions[index].option.length < 5 && (
                     <div>
                       <Button
-                        submitting={isSubmitting}
                         type={"button"}
                         text="Add Options"
                         className={"btn-dark"}
