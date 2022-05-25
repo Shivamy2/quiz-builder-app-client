@@ -7,10 +7,11 @@ export const uploadQuiz = (data) => {
             dispath(quizUploadError(""));
             dispath(quizUploadLoading(true));
             const response = await httpService.post('/quiz', data);
-            dispath(quizUpload(response.data));
+            dispath(quizUploadError("Successfully Created!"));
             dispath(quizUploadLoading(false));
+            dispath(quizUpload(response.data));
         } catch (error) {
-            dispath(quizUploadError("Error Occured!!"));
+            dispath(quizUploadError(error.response.data._message));
             dispath(quizUploadLoading(false));
         }
     }

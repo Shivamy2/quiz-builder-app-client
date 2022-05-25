@@ -6,8 +6,15 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import Button from "../../components/Button";
 import { store } from "../../store/store";
 import { uploadQuiz } from "../../thunk/quiz.thunk";
+import { useSelector } from "react-redux";
+import {
+  quizUploadErrorSelector,
+  quizUploadLoadingSelector,
+} from "../../selectors/quiz.selector";
 
 const UploadQuiz = () => {
+  const errorMessage = useSelector(quizUploadErrorSelector);
+  const loading = useSelector(quizUploadLoadingSelector);
   const {
     handleSubmit,
     handleChange,
@@ -49,8 +56,23 @@ const UploadQuiz = () => {
   console.log("Values", values);
   return (
     <div>
+      {loading && (
+        <div
+          style={{ height: "25vh" }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div className="pulse "></div>
+        </div>
+      )}
+      {errorMessage && (
+        <div className="position-relative mt-2 w-50 mx-auto">
+          <div className="position-absolute bg-success w-100 px-2 py-2 text-white rounded-3">
+            {errorMessage || "Error Occured!!"}
+          </div>
+        </div>
+      )}
       <div className="dashboard w-50 mx-auto text-center">
-        <h1 className="mt-2 fw-bold text-muted">Create Quiz</h1>
+        <h1 className="pt-5 fw-bold text-muted">Create Quiz</h1>
         <form method="post" onSubmit={handleSubmit}>
           <div className="mt-4">
             <InputField
