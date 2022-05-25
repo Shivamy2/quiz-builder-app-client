@@ -112,7 +112,7 @@ const SignUpPage = () => {
                 </InputField>
                 <InputField
                   {...getFieldProps("last_name")}
-                  outerClass="ms-2"
+                  outerClass="ms-md-2"
                   placeholder="Last Name"
                   name="last_name"
                   type="text"
