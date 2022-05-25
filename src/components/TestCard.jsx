@@ -54,7 +54,7 @@ const TestCard = ({
             onClick={onClick}
           >
             <div className="my-auto">
-              <AiOutlineCopy fontSize={25} color="white" />
+              <AiOutlineCopy fontSize={20} color="white" />
             </div>
             <em className="ms-2">Copy Link</em>
           </div>

@@ -9,32 +9,42 @@ import { store } from "../../store/store";
 import { loginUser } from "../../thunk/auth.thunk";
 import { useSelector } from "react-redux";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { loginUserError } from "../../selectors/auth.selector";
+import {
+  loginUserError,
+  loginUserLoading,
+} from "../../selectors/auth.selector";
 
 const LogInPage = () => {
   const error = useSelector(loginUserError);
-
-  const { handleSubmit, errors, touched, getFieldProps, isSubmitting } =
-    useFormik({
-      initialValues: {
-        email: "",
-        password: "",
-      },
-      validationSchema: yup.object().shape({
-        email: yup
-          .string()
-          .email("Must be a valid email")
-          .required("Email is required field!"),
-        password: yup
-          .string()
-          .required("Password is required field!")
-          .min(6, ({ min }) => `Password must be atleast ${min} chars`),
-      }),
-      onSubmit: (data) => {
-        console.log("sending data", data);
-        store.dispatch(loginUser(data));
-      },
-    });
+  const loading = useSelector(loginUserLoading);
+  const {
+    handleSubmit,
+    errors,
+    touched,
+    getFieldProps,
+    isSubmitting,
+    setSubmitting,
+  } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: yup.object().shape({
+      email: yup
+        .string()
+        .email("Must be a valid email")
+        .required("Email is required field!"),
+      password: yup
+        .string()
+        .required("Password is required field!")
+        .min(6, ({ min }) => `Password must be atleast ${min} chars`),
+    }),
+    onSubmit: (data) => {
+      console.log("sending data", data);
+      store.dispatch(loginUser(data));
+      setSubmitting(false);
+    },
+  });
   return (
     <div className="w-100 min-vh-100 bg-white login">
       <div className="px-5 py-4 mx-auto">
@@ -75,6 +85,7 @@ const LogInPage = () => {
               >
                 <svg
                   className="position-absolute text-primary"
+                  style={{ right: "10px" }}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="rgba(27, 85, 226, 0.24)"
@@ -98,6 +109,7 @@ const LogInPage = () => {
                 required
               >
                 <svg
+                  style={{ right: "10px" }}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="rgba(27, 85, 226, 0.24)"
@@ -125,7 +137,7 @@ const LogInPage = () => {
                 type="submit"
                 className={`btn-primary border-0 rounded-3 px-4 py-2 fs-6`}
               >
-                {isSubmitting ? <AiOutlineLoading3Quarters /> : "Log in"}
+                {loading ? <AiOutlineLoading3Quarters /> : "Log in"}
               </button>
             </div>
           </form>

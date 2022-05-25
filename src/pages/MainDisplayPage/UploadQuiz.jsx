@@ -11,6 +11,7 @@ import {
   quizUploadErrorSelector,
   quizUploadLoadingSelector,
 } from "../../selectors/quiz.selector";
+import "../style/dashboard.css";
 
 const UploadQuiz = () => {
   const errorMessage = useSelector(quizUploadErrorSelector);
@@ -67,11 +68,11 @@ const UploadQuiz = () => {
       {errorMessage && (
         <div className="position-relative mt-2 w-50 mx-auto">
           <div className="position-absolute bg-success w-100 px-2 py-2 text-white rounded-3">
-            {errorMessage || "Error Occured!!"}
+            {errorMessage + "visit HomePage" || "Error Occured!!"}
           </div>
         </div>
       )}
-      <div className="dashboard w-50 mx-auto text-center">
+      <div className="mx-auto text-center dashboard">
         <h1 className="pt-5 fw-bold text-muted">Create Quiz</h1>
         <form method="post" onSubmit={handleSubmit}>
           <div className="mt-4">
@@ -168,28 +169,30 @@ const UploadQuiz = () => {
               </div>
             ))}
           </div>
-          <div className="my-4">
-            <Button
-              className={"dashboard-add-questions"}
-              type={"button"}
-              text="Add Question"
-              onClick={(event) => {
-                event.preventDefault();
-                setValues({
-                  ...values,
-                  questions: [
-                    ...values.questions,
-                    {
-                      optionType: "",
-                      question: "",
-                      option: [""],
-                      answers: [0],
-                    },
-                  ],
-                });
-              }}
-            />
-          </div>
+          {values.questions.length < 10 && (
+            <div className="my-4">
+              <Button
+                className={"dashboard-add-questions"}
+                type={"button"}
+                text="Add Question"
+                onClick={(event) => {
+                  event.preventDefault();
+                  setValues({
+                    ...values,
+                    questions: [
+                      ...values.questions,
+                      {
+                        optionType: "",
+                        question: "",
+                        option: [""],
+                        answers: [0],
+                      },
+                    ],
+                  });
+                }}
+              />
+            </div>
+          )}
           <div>
             <Button
               type={"submit"}

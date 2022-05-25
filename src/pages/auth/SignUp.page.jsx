@@ -85,7 +85,7 @@ const SignUpPage = () => {
         <div className="w-100 pt-2 fs-5 login__form">
           <form method="POST" onSubmit={handleSubmit}>
             <div className="w-l00 mt-4">
-              <div className="d-flex">
+              <div className="d-md-flex">
                 <InputField
                   {...getFieldProps("first_name")}
                   placeholder="First Name"
@@ -96,6 +96,7 @@ const SignUpPage = () => {
                   required
                 >
                   <svg
+                    style={{ right: "10px" }}
                     className="position-absolute text-primary"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -120,6 +121,7 @@ const SignUpPage = () => {
                   required
                 >
                   <svg
+                    style={{ right: "10px" }}
                     className="position-absolute text-primary"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -144,6 +146,7 @@ const SignUpPage = () => {
                 required
               >
                 <svg
+                  style={{ right: "10px" }}
                   className="position-absolute text-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -168,6 +171,7 @@ const SignUpPage = () => {
                 required
               >
                 <svg
+                  style={{ right: "10px" }}
                   className="position-absolute text-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -191,6 +195,7 @@ const SignUpPage = () => {
                 required
               >
                 <svg
+                  style={{ right: "10px" }}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="rgba(27, 85, 226, 0.24)"

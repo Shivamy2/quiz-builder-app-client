@@ -16,7 +16,7 @@ const InputField = ({
   return (
     <div className={"w-100 py-4 " + outerClass}>
       <div className={`d-flex position-relative w-100 inputfield ${className}`}>
-        {children}
+        <div className="d-flex align-items-center">{children}</div>
         <label htmlFor={name}></label>
         <input
           {...rest}
@@ -27,7 +27,7 @@ const InputField = ({
           type={rest.type}
           name={name}
           placeholder={rest.placeholder}
-          className={`w-100 pt-1 pb-1 my-auto fs-6 ps-5 ${innerClass}`}
+          className={`w-100 pt-1 pb-1 my-auto fs-6 me-5 ${innerClass}`}
         />
       </div>
       <hr
