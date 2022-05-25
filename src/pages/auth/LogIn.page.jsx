@@ -7,10 +7,12 @@ import * as yup from "yup";
 import "../style/login.css";
 import { store } from "../../store/store";
 import { loginUser } from "../../thunk/auth.thunk";
+import { useSelector } from "react-redux";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { loginUserError } from "../../selectors/auth.selector";
 
 const LogInPage = () => {
-  // const loginFailedMessage = useSelector(authSelector);
-  // console.log("Login Failed Message", loginFailedMessage);
+  const error = useSelector(loginUserError);
 
   const { handleSubmit, errors, touched, getFieldProps, isSubmitting } =
     useFormik({
@@ -52,15 +54,13 @@ const LogInPage = () => {
             />
           </div>
         </div>
-        {/* {loginFailedMessage && (
-          <div className="relative">
-            <Alert
-              className="absolute "
-              title={loginFailedMessage}
-              alertType="error"
-            />
+        {error && (
+          <div className="position-relative">
+            <div className="position-absolute bg-danger w-100 px-2 py-2 text-white rounded-3">
+              {error || "Error Occured!!"}
+            </div>
           </div>
-        )} */}
+        )}
         <div className="w-100 fs-5 login__form">
           <form method="POST" onSubmit={handleSubmit}>
             <div className="w-l00 mt-4">
@@ -125,7 +125,7 @@ const LogInPage = () => {
                 type="submit"
                 className={`btn-primary border-0 rounded-3 px-4 py-2 fs-6`}
               >
-                Log in
+                {isSubmitting ? <AiOutlineLoading3Quarters /> : "Log in"}
               </button>
             </div>
           </form>

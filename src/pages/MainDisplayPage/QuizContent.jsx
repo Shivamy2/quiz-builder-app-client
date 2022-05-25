@@ -3,16 +3,14 @@ import TestCard from "../../components/TestCard";
 import { store, useAppSelector } from "../../store/store";
 import {
   quizDataSelector,
-  quizFetchErrorSelector,
   quizFetchLoadingSelector,
 } from "../../selectors/quiz.selector";
-import { fetchQuiz } from "../../thunk/quiz.thunk";
+import { deleteQuiz, fetchQuiz } from "../../thunk/quiz.thunk";
 import copy from "copy-to-clipboard";
 
 const QuizContent = () => {
   const quizes = useAppSelector(quizDataSelector);
   const loading = useAppSelector(quizFetchLoadingSelector);
-  const errorMessage = useAppSelector(quizFetchErrorSelector);
   console.log("Quizes", quizes);
   useEffect(() => {
     console.log("UserEffect called");
@@ -34,6 +32,11 @@ const QuizContent = () => {
           quizes.map((quiz, index) => (
             <TestCard
               className={"col-10 col-md-5"}
+              onDeleteClick={() => {
+                if (window.confirm(`${quiz?.title} will be deleted!`)) {
+                  store.dispatch(deleteQuiz(quiz._id));
+                }
+              }}
               onClick={() => {
                 const link = window.location.origin + "/quiz/" + quiz._id;
                 copy(link);

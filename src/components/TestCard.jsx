@@ -3,8 +3,15 @@ import { BiRightArrow } from "react-icons/bi";
 import { AiOutlineCopy } from "react-icons/ai";
 import { memo } from "react";
 import "./style/testCard.css";
+import { AiFillDelete } from "react-icons/ai";
 
-const TestCard = ({ title, onClick, numberOfQuestions, className }) => {
+const TestCard = ({
+  title,
+  onClick,
+  numberOfQuestions,
+  className,
+  onDeleteClick,
+}) => {
   return (
     <div
       className={
@@ -25,24 +32,32 @@ const TestCard = ({ title, onClick, numberOfQuestions, className }) => {
         </div>
       </div>
       <hr className="mt-3 border border-1 border-primary" />
-      <div
-        className="pt-2 d-flex justify-content-between fw-bold"
-        onClick={onClick}
-      >
+      <div className="pt-2 d-flex justify-content-between fw-bold">
         <div className="d-flex">
           <div className="my-auto">
             <BiRightArrow fontSize={20} color="blue" />
           </div>
           <p className="ms-1 my-auto">{numberOfQuestions} Questions</p>
         </div>
-        <div
-          className="d-flex bg-danger text-white px-3 py-2 rounded-3"
-          style={{ cursor: "pointer" }}
-        >
-          <div className="my-auto">
-            <AiOutlineCopy fontSize={25} color="white" />
+        <div className="d-flex">
+          <div className="my-auto ">
+            <AiFillDelete
+              onClick={onDeleteClick}
+              fontSize={20}
+              className="text-danger"
+              style={{ cursor: "pointer" }}
+            />
           </div>
-          <em className="ms-2">Copy Link</em>
+          <div
+            className="d-flex bg-danger ms-1 text-white px-3 py-2 rounded-3"
+            style={{ cursor: "pointer" }}
+            onClick={onClick}
+          >
+            <div className="my-auto">
+              <AiOutlineCopy fontSize={25} color="white" />
+            </div>
+            <em className="ms-2">Copy Link</em>
+          </div>
         </div>
       </div>
     </div>

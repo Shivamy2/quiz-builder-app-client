@@ -25,3 +25,23 @@ export const quizUploadLoadingSelector = createSelector(
     [quizSelector],
     (quiz) => quiz.uploadLoading
 );
+export const quizFetchOneLoadingSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.oneLoading
+);
+export const quizErrorOneSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.oneError
+);
+export const quizFetchOneSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.currentQuiz
+);
+export const quizDeleteLoadingSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.deleteLoading
+);
+export const quizDeleteErrorSelector = createSelector(
+    [quizSelector],
+    (quiz) => quiz.deleteError
+);

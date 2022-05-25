@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { userDataSelector } from "../selectors/auth.selector";
 import { FiLogOut } from "react-icons/fi";
+import { AiFillHome } from "react-icons/ai";
 import { BiBookContent } from "react-icons/bi";
 import "./style/header.css";
 import fields from "../services/httpService";
@@ -17,7 +18,7 @@ const Header = () => {
   return (
     <div className="header bg-primary dashboard-header sticky-top">
       <div className="pt-2 d-flex justify-content-between px-2 px-md-4">
-        <div>
+        <div className="my-auto">
           <Link
             className="text-uppercase text-decoration-none fw-bold fs-3 text-white"
             to={"/dashboard"}
@@ -27,23 +28,30 @@ const Header = () => {
         </div>
         <div className="d-flex">
           <div
-            className="my-auto me-2"
+            className="my-auto me-2 me-md-3"
             style={{ cursor: "pointer" }}
-            onClick={() => fields.logout()}
+            onClick={() => history.push("/dashboard")}
           >
-            <FiLogOut size={25} color="white" />
+            <AiFillHome size={25} color="white" />
           </div>
           <div
-            className="my-auto me-2"
+            className="my-auto me-2 me-md-3"
             style={{ cursor: "pointer" }}
             onClick={() => history.push("/upload")}
           >
             <BiBookContent size={25} color="white" />
           </div>
-          <div className="dashboard-header__profile bg-warning rounded-circle">
-            <span className="d-flex justify-content-center fs-3 fw-bold text-primary">
+          <div
+            className="my-auto me-2 me-md-3"
+            style={{ cursor: "pointer" }}
+            onClick={() => fields.logout()}
+          >
+            <FiLogOut size={25} color="white" />
+          </div>
+          <div className="dashboard-header__profile bg-warning rounded-circle my-auto">
+            <div className="d-flex justify-content-center fs-3 fw-bold text-primary">
               {firstLetter}
-            </span>
+            </div>
           </div>
         </div>
       </div>

@@ -6,8 +6,6 @@ import { combineReducers } from "redux"
 import { authReducer } from "../reducers/auth.reducer";
 import { quizReducer } from "../reducers/quiz.reducer";
 
-// const devTools = process.env.NODE_ENV === 'production' ? applyMiddleware(thunk) : composeWithDevTools(applyMiddleware(thunk));
-
 const rootReducer = combineReducers({
     auth: authReducer,
     quiz: quizReducer
@@ -15,7 +13,8 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: rootReducer,
-    devTools: process.env.NODE_ENV === 'production' ? thunk : composeWithDevTools(thunk),
+    // devTools: process.env.NODE_ENV === 'production' ? thunk : composeWithDevTools(thunk),
+    devTools: composeWithDevTools(thunk),
 });
 
 export const useAppSelector = useSelector;

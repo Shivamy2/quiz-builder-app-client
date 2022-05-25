@@ -119,7 +119,7 @@ const UploadQuiz = () => {
                         onChange={(event) =>
                           setFieldValue(
                             `questions.[${index}].answers[${optionsIndex}]`,
-                            +event.target.value + 1
+                            event.target.checked ? 1 : 0
                           )
                         }
                         type="checkbox"

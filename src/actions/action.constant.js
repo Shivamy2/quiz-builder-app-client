@@ -22,3 +22,13 @@ export const QUIZ_UPLOAD_LOADING = 'quiz/upload_loading';
 export const QUIZ_FETCH = 'quiz/fetch';
 export const QUIZ_FETCH_LOADING = 'quiz/fetch_loading';
 export const QUIZ_FETCH_ERROR = 'quiz/fetch_error';
+
+// quiz one fetch
+export const QUIZ_ONE = "quiz/one";
+export const QUIZ_ONE_LOADING = "quiz/one_loading";
+export const QUIZ_ONE_ERROR = "quiz/one_error";
+
+// quiz delete
+export const QUIZ_DELETE = 'quiz/delete';
+export const QUIZ_DELETE_LOADING = 'quiz/delete_loading';
+export const QUIZ_DELETE_ERROR = 'quiz/delete_error';
