@@ -10,11 +10,17 @@
 
 .questions-upload {
     position: fixed;
-    bottom: 15px;
+    bottom: 56px;
     right: 15px;
 }
 
 .dashboard-add-questions {
+    position: fixed;
+    bottom: 56px;
+    left: 28px;
+}
+
+.dashboard-remove-questions {
     position: fixed;
     bottom: 15px;
     left: 15px;

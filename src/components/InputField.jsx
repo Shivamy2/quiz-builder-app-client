@@ -9,6 +9,7 @@ const InputField = ({
   touched,
   errorMessage,
   innerClass,
+  handleBlur,
   outerClass,
   ...rest
 }) => {

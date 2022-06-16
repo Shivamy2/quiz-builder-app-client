@@ -45,6 +45,7 @@ const LogInPage = () => {
       setSubmitting(false);
     },
   });
+  console.log("Touched", touched);
   return (
     <div className="w-100 min-vh-100 bg-white login">
       <div className="px-5 py-4 mx-auto">

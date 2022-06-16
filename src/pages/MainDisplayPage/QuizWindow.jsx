@@ -68,10 +68,9 @@ const QuizWindow = () => {
         <div className="mt-3 text-center">
           {!showQuiz && (
             <Button
+              isPlus={true}
               className={"btn-warning"}
               onClick={() => {
-                // const quizWindow = document.getElementById("quiz-window");
-                // quizWindow.requestFullscreen();
                 handleFullScreen.enter();
                 setShowQuiz(true);
               }}
