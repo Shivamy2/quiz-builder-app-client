@@ -2,7 +2,10 @@ import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Button from "../../components/Button";
-import { quizFetchOneSelector } from "../../selectors/quiz.selector";
+import {
+  quizErrorOneSelector,
+  quizFetchOneSelector,
+} from "../../selectors/quiz.selector";
 import { store } from "../../store/store";
 import { fetchOneQuiz } from "../../thunk/quiz.thunk";
 import OptionRadio from "../MainDisplayPage/OptionRadio";
@@ -12,6 +15,7 @@ import { useFullScreenHandle, FullScreen } from "react-full-screen";
 const QuizWindow = () => {
   const { id } = useParams();
   const quiz = useSelector(quizFetchOneSelector);
+  const errorMessage = useSelector(quizErrorOneSelector);
   const [showQuiz, setShowQuiz] = useState(false);
   const handleFullScreen = useFullScreenHandle();
   console.log("quiz", quiz);
@@ -67,6 +71,10 @@ const QuizWindow = () => {
       console.log("Final marks", correctAnswer);
     }
   };
+
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
+  }
 
   if (!quiz.questions) {
     return (
