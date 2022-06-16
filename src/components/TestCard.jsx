@@ -1,4 +1,3 @@
-import testLogo from "../images/quiz-card.png";
 import { BiRightArrow } from "react-icons/bi";
 import { AiOutlineCopy } from "react-icons/ai";
 import { memo } from "react";
@@ -23,7 +22,7 @@ const TestCard = ({
         <div>
           <img
             className="test-card__logo rounded-circle border border-2 border-dark"
-            src={testLogo}
+            src={process.env.PUBLIC_URL + "images/quiz-card.png"}
             alt="test-logo"
           />
         </div>
