@@ -31,24 +31,41 @@ const QuizWindow = () => {
   console.log("length", quiz?.questions?.length);
   const handleSubmit = (event) => {
     event.preventDefault();
-    var correctAnswer = 0;
-    for (var i = 0; i < quiz?.questions?.length; ++i) {
-      const answerLength = quiz?.questions[i]?.answers?.length;
-      var flag = true;
-      for (var j = 0; j < answerLength; ++j) {
-        const userChoice = answerCheck[i][j];
-        const actualAnswer = quiz?.questions[i]?.answers[j];
-        console.log("userChoice", userChoice, "actualAnswer", actualAnswer);
-        if (userChoice !== actualAnswer) {
-          flag = false;
+    var isValidated = true;
+    for (var i = 0; i < answerCheck.length; ++i) {
+      var flag = false;
+      for (var answer of answerCheck[i]) {
+        if (answer === 1) {
+          flag = true;
           break;
         }
       }
-      console.log("Is correct", flag);
-      if (flag) correctAnswer += 1;
+      if (flag === false) {
+        isValidated = false;
+        alert("Please check all the answers, then only you can proceed");
+        break;
+      }
     }
-    alert(`Your Score: ${correctAnswer}/${quiz?.questions?.length}`);
-    console.log("Final marks", correctAnswer);
+    if (isValidated) {
+      var correctAnswer = 0;
+      for (var k = 0; k < quiz?.questions?.length; ++k) {
+        const answerLength = quiz?.questions[k]?.answers?.length;
+        flag = true;
+        for (var j = 0; j < answerLength; ++j) {
+          const userChoice = answerCheck[k][j];
+          const actualAnswer = quiz?.questions[k]?.answers[j];
+          console.log("userChoice", userChoice, "actualAnswer", actualAnswer);
+          if (userChoice !== actualAnswer) {
+            flag = false;
+            break;
+          }
+        }
+        console.log("Is correct", flag);
+        if (flag) correctAnswer += 1;
+      }
+      alert(`Your Score: ${correctAnswer}/${quiz?.questions?.length}`);
+      console.log("Final marks", correctAnswer);
+    }
   };
 
   if (!quiz.questions) {
