@@ -28,22 +28,19 @@ const Header = () => {
         </div>
         <div className="d-flex">
           <div
-            className="my-auto me-2 me-md-3"
-            style={{ cursor: "pointer" }}
+            className="my-auto me-2 me-md-3 item__pointer"
             onClick={() => history.push("/dashboard")}
           >
             <AiFillHome size={25} color="white" />
           </div>
           <div
-            className="my-auto me-2 me-md-3"
-            style={{ cursor: "pointer" }}
+            className="my-auto me-2 me-md-3 item__pointer"
             onClick={() => history.push("/upload")}
           >
             <BsUpload size={25} color="white" />
           </div>
           <div
-            className="my-auto me-2 me-md-3"
-            style={{ cursor: "pointer" }}
+            className="my-auto me-2 me-md-3 item__pointer"
             onClick={() => fields.logout()}
           >
             <FiLogOut size={25} color="white" />

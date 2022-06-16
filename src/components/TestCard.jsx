@@ -44,13 +44,11 @@ const TestCard = ({
             <AiFillDelete
               onClick={onDeleteClick}
               fontSize={20}
-              className="text-danger"
-              style={{ cursor: "pointer" }}
+              className="text-danger item__pointer"
             />
           </div>
           <div
-            className="d-flex bg-danger ms-1 text-white px-3 py-2 rounded-3"
-            style={{ cursor: "pointer" }}
+            className="d-flex bg-danger ms-1 text-white px-3 py-2 rounded-3 item__pointer"
             onClick={onClick}
           >
             <div className="my-auto">

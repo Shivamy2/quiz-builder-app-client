@@ -41,7 +41,7 @@ export const fetchOneQuiz = (id) => {
             dispath(quizOneFetch(response.data));
             dispath(quizOneLoading(false));
         } catch (error) {
-            dispath(quizOneError("Error Occured!!"));
+            dispath(quizOneError("Could not find quiz"));
             dispath(quizOneLoading(false));
         }
     }
